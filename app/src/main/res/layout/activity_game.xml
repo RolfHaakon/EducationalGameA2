@@ -22,13 +22,20 @@
             />
 
         <TextView
-            android:text="@string/Question"
+            android:id="@+id/questionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="36sp"
             android:layout_marginTop="50dp"
             />
+
+        <TextView
+            android:id="@+id/currentScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -49,14 +56,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/answer1" />
+                android:id="@+id/answer1" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/answer2" />
+                android:id="@+id/answer2" />
         </LinearLayout>
 
         <LinearLayout
@@ -71,14 +78,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/answer3" />
+                android:id="@+id/answer3" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/answer4" />
+                android:id="@+id/answer4" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
