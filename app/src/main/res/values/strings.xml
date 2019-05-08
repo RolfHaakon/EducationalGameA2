@@ -23,6 +23,7 @@
     <string name="Question1">Question 1</string>
     <string name="Question2">Question 2</string>
     <string name="Question3">Question 3</string>
+    <string name="gameover">Game Over</string>
 
 
 </resources>
