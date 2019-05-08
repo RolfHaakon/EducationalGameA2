@@ -8,4 +8,20 @@
     <string name="answer2">Answer 2</string>
     <string name="answer3">Answer 3</string>
     <string name="answer4">Answer 4</string>
+    <string name="radio_easy">Easy</string>
+    <string name="radio_medium">Medium</string>
+    <string name="radio_hard">Hard</string>
+    <string name="radio_music_off">Off</string>
+    <string name="radio_music_on">On</string>
+    <string name="settings_difficulty">Difficulty</string>
+    <string name="settings_sound">Sound</string>
+    <string name="settings_save_button">Save</string>
+    <string name="game_info_header">Game Information</string>
+    <string name="game_information">
+        Call park out she wife face mean. Invitation excellence imprudence understood it continuing to.
+        Ye show done an into. Fifteen winding related may hearted colonel are way studied. County suffer
+        twenty or marked no moment in he. Meet shew or said like he. Valley silent cannot things so remain
+        oh to elinor. Far merits season better tended any age hunted.
+    </string>
+    <string name="your_score">Your Score</string>
 </resources>

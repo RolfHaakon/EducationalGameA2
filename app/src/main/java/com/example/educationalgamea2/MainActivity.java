@@ -39,13 +39,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        settings.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToSettings = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(goToSettings);
+            }
+        });
+
+        info.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToInfo = new Intent(MainActivity.this, InfoActivity.class);
+                startActivity(goToInfo);
+            }
+        });
+        highscore.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToHighscore = new Intent(MainActivity.this, HighscoreActivity.class);
+                startActivity(goToHighscore);
+            }
+        });
+
+
 
 
 }
-
-
-
-
-
-
 }
