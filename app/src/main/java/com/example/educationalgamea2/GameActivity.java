@@ -23,22 +23,34 @@ public class GameActivity extends AppCompatActivity {
     int score;
     int winnerButton;
     Button answer1,answer2,answer3,answer4;
+    String name1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         pb = findViewById(R.id.progressbar);
+        Intent getName = getIntent();
+        String name = getName.getStringExtra("name");
+        name1 = name;
         ObjectAnimator animation = ObjectAnimator.ofInt(pb, "progress", 0, 100);
-        animation.setDuration(25000);
+        Toast.makeText(GameActivity.this,name, Toast.LENGTH_LONG).show();
+        animation.setDuration(10000);
         animation.setInterpolator(new DecelerateInterpolator());
         animation.addListener(new Animator.AnimatorListener() {
+
             @Override
             public void onAnimationStart(Animator animator) { }
 
             @Override
             public void onAnimationEnd(Animator animator) {
                 //do something when the countdown is complete
+                Intent goToGameOver = new Intent(GameActivity.this, GameOverActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("name",name1);
+                extras.putInt("finalScore",score);
+                goToGameOver.putExtras(extras);
+                startActivity(goToGameOver);
             }
             @Override
             public void onAnimationCancel(Animator animator) { }

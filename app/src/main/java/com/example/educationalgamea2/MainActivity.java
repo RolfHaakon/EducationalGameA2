@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText name;
     TextView nametag;
     Button settings, info;
+    String strName;
 
 
 
@@ -31,11 +33,19 @@ public class MainActivity extends AppCompatActivity {
         info = findViewById(R.id.button_info);
 
 
+
         play.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToGame = new Intent(MainActivity.this, GameActivity.class);
-                startActivity(goToGame);
+                if (name.getText().length() == 0){
+                    Toast.makeText(MainActivity.this,"Enter Username", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Intent goToGame = new Intent(MainActivity.this, GameActivity.class);
+                    strName = name.getText().toString();
+                    goToGame.putExtra("name", strName);
+                    startActivity(goToGame);
+                }
             }
         });
 
