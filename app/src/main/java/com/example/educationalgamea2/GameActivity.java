@@ -3,6 +3,7 @@ package com.example.educationalgamea2;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,9 +14,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.seismic.ShakeDetector;
+
 import java.util.Random;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity implements ShakeDetector.Listener {
 
     ProgressBar pb;
     TextView scoreText;
@@ -33,14 +36,19 @@ public class GameActivity extends AppCompatActivity {
         Intent getName = getIntent();
         String name = getName.getStringExtra("name");
         name1 = name;
+        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        ShakeDetector shakeDetector = new ShakeDetector(this);
+        shakeDetector.start(sensorManager);
+
         ObjectAnimator animation = ObjectAnimator.ofInt(pb, "progress", 0, 100);
-        Toast.makeText(GameActivity.this,name, Toast.LENGTH_LONG).show();
-        animation.setDuration(10000);
+
+        animation.setDuration(30000);
         animation.setInterpolator(new DecelerateInterpolator());
         animation.addListener(new Animator.AnimatorListener() {
 
             @Override
             public void onAnimationStart(Animator animator) { }
+
 
             @Override
             public void onAnimationEnd(Animator animator) {
@@ -61,9 +69,17 @@ public class GameActivity extends AppCompatActivity {
         scoreText = findViewById(R.id.currentScore);
         scoreText.setText("Score: " + score);
 
-        questionStarter();
+
+
         animation.start();
+        questionStarter();
     }
+
+    @Override
+    public void hearShake() {
+        Toast.makeText(GameActivity.this,"Its shaking", Toast.LENGTH_LONG).show();
+    }
+
 
     public void questionStarter() {
         Random rand1 = new Random();
@@ -195,5 +211,4 @@ public class GameActivity extends AppCompatActivity {
         }
 
     }
-
 }
