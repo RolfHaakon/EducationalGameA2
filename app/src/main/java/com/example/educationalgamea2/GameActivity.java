@@ -14,11 +14,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.seismic.ShakeDetector;
+
 
 import java.util.Random;
 
-public class GameActivity extends AppCompatActivity implements ShakeDetector.Listener {
+public class GameActivity extends AppCompatActivity {
 
     ProgressBar pb;
     TextView scoreText;
@@ -36,9 +36,7 @@ public class GameActivity extends AppCompatActivity implements ShakeDetector.Lis
         Intent getName = getIntent();
         String name = getName.getStringExtra("name");
         name1 = name;
-        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        ShakeDetector shakeDetector = new ShakeDetector(this);
-        shakeDetector.start(sensorManager);
+
 
         ObjectAnimator animation = ObjectAnimator.ofInt(pb, "progress", 0, 100);
 
@@ -74,12 +72,6 @@ public class GameActivity extends AppCompatActivity implements ShakeDetector.Lis
         animation.start();
         questionStarter();
     }
-
-    @Override
-    public void hearShake() {
-        Toast.makeText(GameActivity.this,"Its shaking", Toast.LENGTH_LONG).show();
-    }
-
 
     public void questionStarter() {
         Random rand1 = new Random();
